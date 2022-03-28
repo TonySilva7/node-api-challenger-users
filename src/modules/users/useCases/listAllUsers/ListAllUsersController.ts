@@ -7,17 +7,13 @@ class ListAllUsersController {
 
   handle(request: Request, response: Response): Response {
     // Complete aqui
-    const userId = request.headers.user_id as string;
-    const user = {
-      user_id: userId,
+    const u = {
+      user_id: request.headers.user_id as string,
     };
 
-    const users = this.listAllUsersUseCase.execute(user);
-    const res = users
-      ? response.status(200).json(users)
-      : response.status(404).json({ message: "You're not admin" });
+    const users = this.listAllUsersUseCase.execute(u);
 
-    return res;
+    return response.status(200).json(users);
   }
 }
 
