@@ -12,7 +12,7 @@ class User {
   constructor() {
     this.id = !this.id ? uuidV4() : this.id;
     this.name = "";
-    this.isAdmin = true;
+    this.isAdmin = false;
     this.email = "";
     this.created_at = new Date();
     this.updated_at = new Date();

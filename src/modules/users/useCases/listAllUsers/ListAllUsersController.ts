@@ -11,9 +11,15 @@ class ListAllUsersController {
       user_id: request.headers.user_id as string,
     };
 
-    const users = this.listAllUsersUseCase.execute(u);
+    try {
+      const users = this.listAllUsersUseCase.execute(u);
 
-    return response.status(200).json(users);
+      return response.status(200).json(users);
+    } catch (err) {
+      return response.status(401).send({
+        message: err.message || "Unexpected error.",
+      });
+    }
   }
 }
 
