@@ -16,7 +16,7 @@ class ListAllUsersController {
 
       return response.status(200).json(users);
     } catch (err) {
-      return response.status(401).send({
+      return response.status(400).send({
         message: err.message || "Unexpected error.",
       });
     }

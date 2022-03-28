@@ -4,7 +4,7 @@ class User {
   // Complete aqui
   public id?: string;
   public name: string;
-  public isAdmin: boolean;
+  public admin: boolean;
   public email: string;
   public created_at: Date;
   public updated_at: Date;
@@ -12,10 +12,10 @@ class User {
   constructor() {
     this.id = !this.id ? uuidV4() : this.id;
     this.name = "";
-    this.isAdmin = false;
+    this.admin = false;
     this.email = "";
-    this.created_at = new Date();
-    this.updated_at = new Date();
+    this.created_at = null;
+    this.updated_at = null;
   }
 }
 
